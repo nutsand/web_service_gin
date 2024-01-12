@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  workspace:
+    image: web-services-gin-image
+    container_name: web-services-gin-container
+    build:
+      context: ./
+      dockerfile: ./.docker/workspace/Dockerfile
+    # M1 Mac を使用している人は，以下の platform に対するコメントアウトを削除してください
+    # platform: linux/x86_64
+    tty: true
+    ports:
+      - 9001:9000
+    volumes:
+      - type: bind
+        source: ./
+        target: /home/vscode/web-services-gin
+        consistency: delegated
+      # - type: volume
+      #   source: vendor_volume
+      #   target: /var/www/html/vendor
+    # depends_on:
+    #   - mysql
