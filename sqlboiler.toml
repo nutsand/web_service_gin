@@ -1,0 +1,8 @@
+output   = "./db/models"
+wipe     = true
+no-tests = true
+add-enum-types = true
+
+[psql]
+  sslmode = "disable"
+  blacklist = ["gorp_migrations"]
