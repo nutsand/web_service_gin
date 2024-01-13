@@ -21,10 +21,12 @@ func NewAlbumRepository(db *sql.DB) repository_interface.AlbumRepository {
 	}
 }
 
-func (repo *AlbumPostgresRepository) Save(ctx *gin.Context, album domain.Album) error {
+func (repo AlbumPostgresRepository) Save(ctx *gin.Context, album domain.Album) error {
 	saveTarget := &models.Album{
-		ID:    album.ID,
-		Price: album.Price,
+		ID:     album.ID,
+		Title:  album.Title,
+		Artist: album.Artist,
+		Price:  album.Price,
 	}
 
 	err := saveTarget.Insert(ctx, repo.db, boil.Infer())
