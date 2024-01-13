@@ -6,6 +6,8 @@ ENV PSQL_PORT=5432
 ENV PSQL_USER=go-demo
 ENV PSQL_PASS=password
 
+WORKDIR /home/vscode/web-service-gin
+
 # go command install
 RUN go install github.com/volatiletech/sqlboiler/v4@latest
 RUN go install github.com/volatiletech/sqlboiler/v4/drivers/sqlboiler-psql@latest

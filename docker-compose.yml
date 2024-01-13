@@ -2,8 +2,8 @@ version: '3.9'
 
 services:
   workspace:
-    image: web-services-gin-image
-    container_name: web-services-gin-container
+    image: web-service-gin-image
+    container_name: web-service-gin-container
     build:
       context: ./
       dockerfile: ./.docker/workspace/Dockerfile
@@ -15,7 +15,7 @@ services:
     volumes:
       - type: bind
         source: ./
-        target: /home/vscode/web-services-gin
+        target: /home/vscode/web-service-gin
         consistency: delegated
       # - type: volume
       #   source: vendor_volume
